@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            background-color: #e9ecef;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Decodificador</h1>
+        <textarea id="inputText" placeholder="Digite seu texto aqui..."></textarea>
+        <br>
+        <button onclick="criptografar()">Criptografar</button>
+        <button onclick="descriptografar()">Descriptografar</button>
+        <button onclick="copiar()">Copiar</button>
+        <div id="outputText" class="output"></div>
+        <footer>
+            Desenvolvido por [Seu Nome] - 2024
+        </footer>
+    </div>
+
+    <script>
+        function criptografar() {
+            let texto = document.getElementById("inputText").value;
+            let textoCriptografado = texto.replace(/e/g, 'enter')
+                                           .replace(/i/g, 'imes')
+                                           .replace(/a/g, 'ai')
+                                           .replace(/o/g, 'ober')
+                                           .replace(/u/g, 'ufat');
+            document.getElementById("outputText").textContent = textoCriptografado;
+        }
+
+        function descriptografar() {
+            let texto = document.getElementById("inputText").value;
+            let textoDescriptografado = texto.replace(/enter/g, 'e')
+                                             .replace(/imes/g, 'i')
+                                             .replace(/ai/g, 'a')
+                                             .replace(/ober/g, 'o')
+                                             .replace(/ufat/g, 'u');
+            document.getElementById("outputText").textContent = textoDescriptografado;
+        }
+
+        function copiar() {
+            let textoCopiado = document.getElementById("outputText").textContent;
+            navigator.clipboard.writeText(textoCopiado);
+            alert("Texto copiado para a área de transferência!");
+        }
+    </script>
+</body>
+</html>
